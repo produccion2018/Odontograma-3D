@@ -12,8 +12,8 @@ export const CAMERA_VIEWS: Record<
   // +x is the patient's left, so the patient's right side is viewed from -x.
   anterior: { label: "Anterior", position: [0, 0.6, 17.5], target: [0, 0, 0] },
   oclusal: { label: "Oclusal", position: [0, 12.5, 10], target: [0, -0.2, 0.4] },
-  derecha: { label: "Derecha", position: [-15, 3.5, 7], target: [0, 0, 0.5] },
-  izquierda: { label: "Izquierda", position: [15, 3.5, 7], target: [0, 0, 0.5] },
+  derecha: { label: "Derecha", position: [-17.5, 2.5, 8.5], target: [0, 0, 0.5] },
+  izquierda: { label: "Izquierda", position: [17.5, 2.5, 8.5], target: [0, 0, 0.5] },
 };
 
 export function CameraRig({ view, nonce }: { view: CameraView; nonce: number }) {
