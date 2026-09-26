@@ -109,7 +109,7 @@ export function ToothMesh({
           clearcoatRoughness={0.22}
           sheen={0.4}
           sheenColor="#fff6e8"
-          emissiveIntensity={0.55}
+          emissiveIntensity={0.38}
           depthWrite={!missing}
         />
       </mesh>
