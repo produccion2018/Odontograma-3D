@@ -1,24 +1,39 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import { Odontogram3D } from "@/components/odontogram/Odontogram3D";
+
 export const Route = createFileRoute("/")({
+  ssr: false, // the WebGL canvas must never render on the server
+  head: () => ({
+    meta: [
+      { title: "Odontograma 3D — Arcadas completas interactivas" },
+      {
+        name: "description",
+        content:
+          "Odontograma 3D interactivo con 32 dientes independientes, numeración FDI, estados clínicos y controles de cámara.",
+      },
+      { property: "og:title", content: "Odontograma 3D interactivo" },
+      {
+        property: "og:description",
+        content:
+          "Escena 3D real de la cavidad oral: 32 piezas seleccionables, numeración FDI y registro de estados.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
+    <main className="h-screen w-screen">
+      <Odontogram3D
+        onChange={(fdi, state) => {
+          // Punto de integración con el odontograma existente
+          console.log("[odontograma] pieza", fdi, "->", state);
+        }}
       />
-    </div>
+    </main>
   );
 }
