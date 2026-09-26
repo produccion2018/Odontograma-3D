@@ -56,6 +56,9 @@ export function MouthScene({ chart, selected, hovered, onSelect, onHover }: Mout
       >
         {/* rotation-x = PI flips the arch so upper teeth point down */}
         <group rotation={[isUpper ? Math.PI : 0, 0, 0]}>
+          {/* The upper arch is mirrored front-to-back by the rotation above,
+              so its soft tissue is rotated to match the tooth placements. */}
+          <group rotation={[0, isUpper ? Math.PI : 0, 0]}>
           <mesh geometry={gumGeo} castShadow receiveShadow>
             <meshPhysicalMaterial
               map={gumMap}
@@ -81,6 +84,7 @@ export function MouthScene({ chart, selected, hovered, onSelect, onHover }: Mout
               />
             </mesh>
           )}
+          </group>
 
           {placements.map((p) => {
             const def = TEETH_BY_FDI[p.fdi];
