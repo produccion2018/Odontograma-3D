@@ -27,9 +27,9 @@ interface MouthSceneProps {
 }
 
 /** Vertical separation of the arches — the mouth is held wide open. */
-const OPEN_GAP = 2.05;
-const UPPER_TILT = -0.34;
-const LOWER_TILT = 0.34;
+const OPEN_GAP = 1.75;
+const UPPER_TILT = -0.5;
+const LOWER_TILT = 0.5;
 
 export function MouthScene({ chart, selected, hovered, onSelect, onHover }: MouthSceneProps) {
   const enamelMap = useMemo(() => createEnamelTexture(), []);
@@ -129,8 +129,9 @@ export function MouthScene({ chart, selected, hovered, onSelect, onHover }: Mout
       {/* Tongue, resting in the floor of the mouth */}
       <mesh
         geometry={tongue}
-        position={[0, -OPEN_GAP - 0.15, 0.1]}
-        rotation={[0.16, 0, 0]}
+        position={[0, -OPEN_GAP - 0.35, -0.15]}
+        rotation={[0.42, 0, 0]}
+        scale={0.78}
         castShadow
         receiveShadow
       >
@@ -146,8 +147,8 @@ export function MouthScene({ chart, selected, hovered, onSelect, onHover }: Mout
       </mesh>
 
       {/* Oral cavity / throat backdrop so the opening reads as depth, not a hole */}
-      <mesh position={[0, -0.1, -3.1]} rotation={[0, 0, 0]}>
-        <sphereGeometry args={[3.2, 40, 28]} />
+      <mesh position={[0, -0.1, -4.6]} rotation={[0, 0, 0]}>
+        <sphereGeometry args={[5.2, 40, 28]} />
         <meshStandardMaterial color="#5d2530" roughness={0.9} side={THREE.BackSide} />
       </mesh>
 

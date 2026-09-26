@@ -66,7 +66,7 @@ export function Odontogram3D({
       <Canvas
         shadows
         dpr={[1, 2]}
-        camera={{ position: CAMERA_VIEWS.anterior.position, fov: 42 }}
+        camera={{ position: CAMERA_VIEWS.anterior.position, fov: 38 }}
         gl={{ antialias: true }}
         onPointerMissed={() => {
           setSelected(null);
@@ -74,7 +74,7 @@ export function Odontogram3D({
         }}
       >
         <color attach="background" args={["#0f1720"]} />
-        <fog attach="fog" args={["#0f1720", 16, 34]} />
+        <fog attach="fog" args={["#0f1720", 22, 46]} />
 
         <ambientLight intensity={0.55} />
         <hemisphereLight args={["#eaf3ff", "#3a2026", 0.7]} />
@@ -90,7 +90,7 @@ export function Odontogram3D({
           shadow-camera-bottom={-8}
         />
         <spotLight
-          position={[0, 2, 11]}
+          position={[0, 2.5, 14]}
           angle={0.6}
           penumbra={0.8}
           intensity={90}
