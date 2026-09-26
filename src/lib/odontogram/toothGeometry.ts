@@ -209,15 +209,15 @@ export function buildGumGeometry(rx: number, rz: number, scallops = 16): THREE.B
   const samples = sampleArch(rx, rz, 200);
   // cross-section in (radial offset, height); closed loop
   const section: Array<[number, number]> = [
-    [-0.62, -1.25],
-    [-0.58, -0.45],
-    [-0.5, 0.0],
-    [-0.3, 0.26],
-    [0.0, 0.34],
-    [0.34, 0.24],
-    [0.56, -0.05],
-    [0.66, -0.5],
-    [0.68, -1.25],
+    [-0.74, -1.35],
+    [-0.7, -0.4],
+    [-0.6, 0.12],
+    [-0.36, 0.44],
+    [0.0, 0.52],
+    [0.38, 0.42],
+    [0.64, 0.06],
+    [0.76, -0.5],
+    [0.8, -1.35],
   ];
 
   const positions: number[] = [];
@@ -228,7 +228,7 @@ export function buildGumGeometry(rx: number, rz: number, scallops = 16): THREE.B
 
   for (let c = 0; c < cols; c++) {
     const s = samples[c];
-    const scallop = 0.09 * Math.cos(s.t * Math.PI * 2 * scallops);
+    const scallop = 0.12 * Math.cos(s.t * Math.PI * 2 * scallops);
     const widen = 1 + 0.25 * Math.pow(Math.abs(s.t - 0.5) * 2, 2); // thicker toward molars
     for (let r = 0; r < rowsN; r++) {
       const [off, hRaw] = section[r];
