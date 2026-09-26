@@ -108,14 +108,14 @@ function makeQuadrant(
   const dims = arch === "upper" ? UPPER_DIMS : LOWER_DIMS;
   return Array.from({ length: 8 }, (_, i) => {
     const position = i + 1;
-    const d = dims[i];
+    const d = dims[i]!;
     return {
       fdi: quadrantDigit * 10 + position,
-      kind: KIND_BY_POSITION[i],
+      kind: KIND_BY_POSITION[i]!,
       arch,
       side,
       position,
-      name: NAME_BY_POSITION[i],
+      name: NAME_BY_POSITION[i]!,
       width: d.w,
       depth: d.d,
       crownHeight: d.ch,

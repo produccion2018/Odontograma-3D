@@ -143,8 +143,8 @@ export function buildToothGeometry(
 
   // Stitch rows
   for (let r = 0; r < rowStart.length - 1; r++) {
-    const a = rowStart[r];
-    const b = rowStart[r + 1];
+    const a = rowStart[r]!;
+    const b = rowStart[r + 1]!;
     for (let i = 0; i < radialSegments; i++) {
       indices.push(a + i, b + i, a + i + 1);
       indices.push(a + i + 1, b + i, b + i + 1);
@@ -156,7 +156,7 @@ export function buildToothGeometry(
   positions.push(0, heightAt(0, dims) - 0.04, 0);
   uvs.push(0.5, 0);
   for (let i = 0; i < radialSegments; i++) {
-    indices.push(apexIndex, rowStart[0] + i + 1, rowStart[0] + i);
+    indices.push(apexIndex, rowStart[0]! + i + 1, rowStart[0]! + i);
   }
 
   const geo = new THREE.BufferGeometry();
@@ -227,11 +227,11 @@ export function buildGumGeometry(rx: number, rz: number, scallops = 16): THREE.B
   const rowsN = section.length;
 
   for (let c = 0; c < cols; c++) {
-    const s = samples[c];
+    const s = samples[c]!;
     const scallop = 0.1 * Math.cos(s.t * Math.PI * 2 * scallops);
     const widen = 1 + 0.18 * Math.pow(Math.abs(s.t - 0.5) * 2, 2); // thicker toward molars
     for (let r = 0; r < rowsN; r++) {
-      const [off, hRaw] = section[r];
+      const [off, hRaw] = section[r]!;
       const h = hRaw > 0 ? hRaw + scallop : hRaw;
       positions.push(s.x + s.nx * off * widen, h, s.z + s.nz * off * widen);
       uvs.push(s.t * 6, r / (rowsN - 1));
@@ -303,7 +303,7 @@ export function buildPalateGeometry(rx: number, rz: number): THREE.BufferGeometr
 /** Tongue: flattened, tapered body with a median sulcus. */
 export function buildTongueGeometry(): THREE.BufferGeometry {
   const geo = new THREE.SphereGeometry(1, 56, 40);
-  const pos = geo.attributes.position;
+  const pos = geo.attributes['position']!;
   const v = new THREE.Vector3();
   for (let i = 0; i < pos.count; i++) {
     v.fromBufferAttribute(pos, i);

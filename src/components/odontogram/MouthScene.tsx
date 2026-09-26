@@ -88,13 +88,13 @@ export function MouthScene({ chart, selected, hovered, onSelect, onHover }: Mout
           </group>
 
           {placements.map((p) => {
-            const def = TEETH_BY_FDI[p.fdi];
+            const def = TEETH_BY_FDI[p.fdi]!;
             const local = isUpper ? [p.position[0], 0, -p.position[2]] : p.position;
             const yaw = isUpper ? -p.yaw : p.yaw;
             return (
               <group
                 key={p.fdi}
-                position={[local[0], 0.06, local[2]]}
+                position={[local[0]!, 0.06, local[2]!]}
                 rotation={[p.tilt * 0.6, yaw, p.tilt]}
               >
                 <ToothMesh
