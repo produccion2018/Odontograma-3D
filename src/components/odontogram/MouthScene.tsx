@@ -27,7 +27,7 @@ interface MouthSceneProps {
 }
 
 /** Vertical separation of the arches — the mouth is held wide open. */
-const OPEN_GAP = 1.75;
+const OPEN_GAP = 1.95;
 const UPPER_TILT = -0.5;
 const LOWER_TILT = 0.5;
 
@@ -134,7 +134,7 @@ export function MouthScene({ chart, selected, hovered, onSelect, onHover }: Mout
       {/* Tongue, resting in the floor of the mouth */}
       <mesh
         geometry={tongue}
-        position={[0, -OPEN_GAP - 0.35, -0.15]}
+        position={[0, -OPEN_GAP - 0.55, -0.3]}
         rotation={[0.42, 0, 0]}
         scale={1.02}
         castShadow
