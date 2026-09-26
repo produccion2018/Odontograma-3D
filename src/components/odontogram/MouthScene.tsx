@@ -63,6 +63,7 @@ export function MouthScene({ chart, selected, hovered, onSelect, onHover }: Mout
             <meshPhysicalMaterial
               map={gumMap}
               color="#d0616f"
+              side={THREE.DoubleSide}
               roughness={0.45}
               clearcoat={0.55}
               clearcoatRoughness={0.4}
@@ -151,9 +152,9 @@ export function MouthScene({ chart, selected, hovered, onSelect, onHover }: Mout
       </mesh>
 
       {/* Oral cavity / throat backdrop so the opening reads as depth, not a hole */}
-      <mesh position={[0, -0.1, -5.6]} rotation={[0, 0, 0]}>
-        <sphereGeometry args={[6.4, 40, 28]} />
-        <meshStandardMaterial color="#5d2530" roughness={0.9} side={THREE.BackSide} />
+      <mesh position={[0, -0.3, -4.2]} rotation={[0, 0, 0]}>
+        <sphereGeometry args={[4.6, 40, 28]} />
+        <meshStandardMaterial color="#4a1d26" roughness={0.95} side={THREE.BackSide} />
       </mesh>
 
       {/* Soft floor of the mouth */}
