@@ -184,7 +184,7 @@ export interface ArchSample {
 
 export function sampleArch(rx: number, rz: number, steps = 160): ArchSample[] {
   const out: ArchSample[] = [];
-  const span = Math.PI * 1.22; // from back-right, around the front, to back-left
+  const span = Math.PI * 1.45; // from back-right, around the front, to back-left
   for (let i = 0; i <= steps; i++) {
     const t = i / steps;
     const theta = -span / 2 + span * t;

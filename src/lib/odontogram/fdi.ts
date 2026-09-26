@@ -156,8 +156,8 @@ export interface ArchShape {
   rz: number;
 }
 
-export const UPPER_ARCH: ArchShape = { rx: 2.25, rz: 2.95 };
-export const LOWER_ARCH: ArchShape = { rx: 2.0, rz: 2.7 };
+export const UPPER_ARCH: ArchShape = { rx: 3.15, rz: 3.85 };
+export const LOWER_ARCH: ArchShape = { rx: 2.9, rz: 3.5 };
 
 /**
  * Point on the arch. `theta` = 0 at the midline (front), grows toward the back.
@@ -184,7 +184,7 @@ function archArcLength(shape: ArchShape, theta: number, steps = 60) {
 /** Invert arc length -> theta (simple bisection, plenty fast for 32 teeth). */
 function thetaForArcLength(shape: ArchShape, target: number) {
   let lo = 0;
-  let hi = Math.PI * 0.62;
+  let hi = Math.PI * 0.72;
   for (let i = 0; i < 40; i++) {
     const mid = (lo + hi) / 2;
     if (archArcLength(shape, mid) < target) lo = mid;

@@ -135,7 +135,7 @@ export function MouthScene({ chart, selected, hovered, onSelect, onHover }: Mout
         geometry={tongue}
         position={[0, -OPEN_GAP - 0.35, -0.15]}
         rotation={[0.42, 0, 0]}
-        scale={0.78}
+        scale={1.02}
         castShadow
         receiveShadow
       >
@@ -151,14 +151,14 @@ export function MouthScene({ chart, selected, hovered, onSelect, onHover }: Mout
       </mesh>
 
       {/* Oral cavity / throat backdrop so the opening reads as depth, not a hole */}
-      <mesh position={[0, -0.1, -4.6]} rotation={[0, 0, 0]}>
-        <sphereGeometry args={[5.2, 40, 28]} />
+      <mesh position={[0, -0.1, -5.6]} rotation={[0, 0, 0]}>
+        <sphereGeometry args={[6.4, 40, 28]} />
         <meshStandardMaterial color="#5d2530" roughness={0.9} side={THREE.BackSide} />
       </mesh>
 
       {/* Soft floor of the mouth */}
       <mesh position={[0, -OPEN_GAP - 0.95, -0.2]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-        <circleGeometry args={[2.6, 48]} />
+        <circleGeometry args={[3.2, 48]} />
         <meshStandardMaterial map={gumMap} color="#b35262" roughness={0.7} />
       </mesh>
     </group>
